@@ -252,7 +252,6 @@ if (j === k) {
 // за допомоги  оператора || буде присвоювати змінній х значення "default"
 // якщо значення змінної х являється falsy (хибноподібні, тобто приводиться до false)
 let dataArr = [undefined, null, 'string', NaN, true, false, 0, 1];
-
 for (let f of dataArr) {
     console.log(f || 'default');
 }

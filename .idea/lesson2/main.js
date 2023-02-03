@@ -239,7 +239,7 @@ switch (i) {
 let j = +prompt('Введіть число j:', 0);
 let k = +prompt('Ввкдіть число k:', 0);
 if (j == k) {
-    console.log('Числа рівні.');
+    console.log('Числа рівні');
 } else if (j > k) {
     console.log('Число j більше числа k');
 } else if (j < k) {

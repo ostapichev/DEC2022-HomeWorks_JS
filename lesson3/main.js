@@ -17,7 +17,7 @@ let text2 = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.';
 let i = 0;
 while (i < 10) {
     document.write(`<div> ${text2}</div>`);
-    i++
+    i++;
 }
 document.write(`<br>`);
 
@@ -26,7 +26,7 @@ let textIndex2 = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.';
 let j = 0;
 while (j < 10) {
     document.write(`<div>${j} ${textIndex2}</div>`);
-    j++
+    j++;
 }
 document.write(`<br>`);
 

@@ -88,8 +88,8 @@ for (let product of products) {
      document.write(`<div class="product-card">`);
      document.write(`<h3 class="product-title">
                         ${product['title']}. <span class="price">${Object.keys(product)[1]}</span> - ${product['price']}
-                     </h3>`)
-     document.write(`<img src="${product['image']}" alt="" class="product-image"`);
+                     </h3>`);
+     document.write(`<img src="${product['image']}" alt="" class="product-image">`);
      document.write(`</div>`);
 }
 //--------------------

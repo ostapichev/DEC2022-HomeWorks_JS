@@ -3,6 +3,11 @@ body {
     padding: 0;
 }
 
+.products {
+    display: flex;
+    justify-content: space-evenly
+}
+
 .product-card {
     display: flex;
     flex-direction: column;
@@ -19,4 +24,18 @@ body {
 
 .product-image {
     width: 200px;
+}
+
+.users {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.userkey {
+    display: flex;
+    flex-direction: column;
+}
+
+.userkey ul {
+    margin-top: 0;
 }

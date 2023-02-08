@@ -84,14 +84,16 @@ let products = [
     },
 ];
 
+document.write(`<div class="products">`);
 for (let product of products) {
      document.write(`<div class="product-card">`);
-     document.write(`<h3 class="product-title">
+     document.write(`<h5 class="product-title">
                         ${product['title']}. <span class="price">${Object.keys(product)[1]}</span> - ${product['price']}
-                     </h3>`);
+                     </h5>`);
      document.write(`<img src="${product['image']}" alt="" class="product-image">`);
      document.write(`</div>`);
 }
+document.write(`</div>`);
 //--------------------
 
 //є масив
@@ -110,25 +112,44 @@ let users = [
 ];
 
 //за допомоги циклу вивести: - користувачів зі статусом true
-document.write(`<h4>Користувачі зі статусом true</h4>`)
+document.write(`<div class="users">`);
+document.write(`<div class="userkey">`);
+document.write(`<h4>Користувачі зі статусом true:</h4>`);
+document.write(`<ul>`);
 for (let user of users) {
     if (user['status']) {
+        document.write(`<li>`);
         document.write(`<p>${user['name']} - ${Object.keys(user)[2]} ${user['status']}</p>`);
+        document.write(`</li>`);
     }
 }
+document.write(`</ul>`);
+document.write(`</div>`);
 
 //- користувачів зі статусом false
-document.write(`<h4>Користувачі зі статусом false</h4>`)
+document.write(`<div class="userkey">`);
+document.write(`<h4>Користувачі зі статусом false:</h4>`);
+document.write(`<ul>`);
 for (let user of users) {
     if (!user['status']) {
+        document.write(`<li>`);
         document.write(`<p>${user['name']} - ${Object.keys(user)[2]} ${user['status']}</p>`);
+        document.write(`</li>`);
     }
 }
+document.write(`</ul>`);
+document.write(`</div>`);
 
 //- користувачів які старші за 30 років
-document.write(`<h4>Користувачі які старші за 30 років</h4>`)
+document.write(`<div class="userkey">`);
+document.write(`<h4>Користувачі які старші за 30 років:</h4>`);
+document.write(`<ul>`);
 for (let user of users) {
     if (user['age'] > 30) {
+        document.write(`<li>`);
         document.write(`<p>${user['name']} - ${Object.keys(user)[1]} ${user['age']}</p>`);
+        document.write(`</li>`);
     }
 }
+document.write(`</ul>`);
+document.write('</div>');

@@ -57,6 +57,7 @@ let arrayFilms = [
     'Баракуда',
     'Кіборги'
 ];
+
 showFilms(arrayFilms);
 console.log('');
 
@@ -177,7 +178,7 @@ function swap(arr, index1, index2) {
 }
 
 let arrIndex = [11, 22, 33, 44];
-console.log(`Початковий масив: ${arrIndex}`)
+console.log(`Початковий масив: ${arrIndex}`);
 console.log(`Кінцевий масив: ${swap(arrIndex, 0, 1)}`);
 console.log('');
 

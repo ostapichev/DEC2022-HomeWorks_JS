@@ -186,7 +186,7 @@ console.log('');
 function exchange(sumUAH, currencyValues, exchangeCurrency) {
     for (let item of currencyValues) {
         if (exchangeCurrency === item['currency']) {
-            return `${sumUAH} ${' UAH - '} ${sumUAH / item['value']} ${item['currency']}`;
+            return `${sumUAH} ${'UAH -'} ${sumUAH / item['value']} ${item['currency']}`;
         }
     }
 }

@@ -135,7 +135,7 @@ getUserBlock(users);
 
 //- створити функцію яка повертає найменьше число з масиву
 function getMinNum(args) {
-    minArr = args;
+    let minArr = args;
     for (let item of args) {
         for (i = 0; i < args.length; i++) {
             if (item > minArr[i]) {

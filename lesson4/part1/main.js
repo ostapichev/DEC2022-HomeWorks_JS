@@ -138,7 +138,7 @@ getUserBlock(users);
 function getMinNum(args) {
     let minArr = args;
     for (let item of args) {
-        for (i = 0; i < args.length; i++) {
+        for (let i = 0; i < args.length; i++) {
             if (item > minArr[i]) {
                 break;
             }

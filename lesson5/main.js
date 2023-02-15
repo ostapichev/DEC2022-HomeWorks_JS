@@ -163,25 +163,32 @@ console.log('');
 
 //- Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
 //Приклад exchange(10000,[{currency:'USD',value:40},{currency:'EUR',value:42}],'USD') // => 250*/
-function exchange(sumUAH, currencyValues, exchangeCurrency, callback) {
+let exchange = (sum, currencyValues, exchangeCurrency, callback) => {
     for (let item of currencyValues) {
         if (exchangeCurrency === item['currency']) {
-           return callback(sumUAH, item);
+            return callback(sum, item);
         }
     }
 }
 
-console.log(exchange(10000, [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}], 'USD',
-    function(sumUAH, item) {
-        return `${sumUAH} ${'UAH -'} ${sumUAH / item['value']} ${item['currency']}`;
-    }));
+let currencyUAH = (sum, item) => {
+    return `${sum} ${'UAH'} ${(sum / item['value']).toFixed(2)} ${item['currency']}`;
+}
 
-console.log(exchange(10000, [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}], 'EUR',
-    function(sumUAH, item) {
-        return `${sumUAH} ${'UAH -'} ${sumUAH / item['value']} ${item['currency']}`;
-    }));
+let getChangeUAH  = (sum, item) => {
+    return `${sum} ${item['currency']} ${(sum * item['value']).toFixed(2)} ${'UAH'}`;
+}
 
-console.log(exchange(10000, [{currency: 'USD', value: 40}, {currency: 'EUR', value: 42}], 'USD',
-    function(sumUAH, item) {
-        return `${sumUAH} ${'USD -'} ${sumUAH * item['value']} ${item['currency']}`;
-    }));
+let currencys = [
+    {currency: 'USD',  value: 40},
+    {currency: 'EUR', value: 42},
+    {currency: 'pound', value: 44},
+    {currency: 'TL', value: 2}
+]
+
+console.log(exchange(10000, currencys, 'USD', currencyUAH));
+console.log(exchange(1200, currencys, 'EUR', currencyUAH));
+console.log(exchange(1000, currencys, 'pound', currencyUAH));
+console.log(exchange(1000, currencys, 'pound', getChangeUAH));
+console.log(exchange(1000, currencys, 'TL', getChangeUAH));
+console.log(exchange(10000, currencys, 'TL', currencyUAH));

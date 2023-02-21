@@ -161,7 +161,7 @@ console.log(diamondCards);
 
 let clubsCards = playCards
     .filter(value => value.cardSuit === 'clubs')
-    .slice(3, playCards.length + 1);
+    .slice(3, playCards.length);
 
 console.log(clubsCards);
 

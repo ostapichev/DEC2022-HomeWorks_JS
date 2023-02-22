@@ -22,10 +22,11 @@ console.log('');
 //- Є "брудна" стрінга let str = ' dirty string   ' .
 // Почистити її від  пробілів.
 let str = ' dirty string   ';
-let delSpaseStr = str.split(' ')
+let delSpace = str.split(' ')
     .filter(value => value !== '')
     .join(' ');
-console.log(delSpaseStr);
+console.log(delSpace);
+console.log('');
 
 //- Напишіть функцію stringToarray(str), яка перетворює рядок на масив слів.
 let stringToarray = str => str.split(' ');
@@ -51,8 +52,8 @@ let sortNums = (arr, direction) => {
 }
 
 let nums = [11, 21, 3];
-console.log(sortNums(nums,'ascending')) // [3,11,21]
-console.log(sortNums(nums,'descending')) // [21,11,3]
+console.log(sortNums(nums,'ascending')); // [3,11,21]
+console.log(sortNums(nums,'descending')); // [21,11,3]
 console.log('');
 
 //==========================

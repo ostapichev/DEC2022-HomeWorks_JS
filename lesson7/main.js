@@ -8,6 +8,7 @@ function User(id, name, surname, email, phone) {
     this.phone = phone;
 }
 
+let usersArr = []
 let leanne = new User(1, 'Leanne', 'Graham', 'Sincere@april.biz', '1-770-736-8031');
 let ervin = new User(2, 'Ervin', 'Howell', 'Shanna@melissa.tv', '010-692-6593');
 let clementine = new User(3, 'Clementine', 'Bauch', 'Nathan@yesenia.net', '1-463-123-4447');
@@ -34,13 +35,33 @@ let usersArr = new Array(
 
 console.log(usersArr);
 
-/*- Взяти масив з  User[] з попереднього завдання, та відфільтрувати , залишивши тільки об'єкти з парними id (filter)
+//- Взяти масив з  User[] з попереднього завдання, та відфільтрувати , залишивши тільки об'єкти з парними id (filter)
+let evenIdUser = usersArr.filter(value => !(value['id'] % 2));
+console.log(evenIdUser);
 
-- Взяти масив з  User[] з попереднього завдання, та відсортувати його по id. по зростанню (sort)
+//- Взяти масив з  User[] з попереднього завдання, та відсортувати його по id. по зростанню (sort)
+let sortIdUser = usersArr.sort((a, b) => a - b);
+console.log(sortIdUser);
+console.log('');
 
-- створити класс для об'єктів Client з полями id, name, surname , email, phone, order (поле є масивом зі списком товарів)
-створити пустий масив, наповнити його 10 об'єктами Client
-- Взяти масив (Client [] з попереднього завдання).Відсортувати його по кількості товарів в полі order по зростанню. (sort)
+//- створити класс для об'єктів Client з полями
+// id, name, surname , email, phone, order (поле є масивом зі списком товарів)
+/*class Client {
+    constructor(id, name, surname, email, phone, ...order) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.order = order;
+    }
+}
+
+//створити пустий масив, наповнити його 10 об'єктами Client
+let arrClient = [];*/
+
+
+/*- Взяти масив (Client [] з попереднього завдання).Відсортувати його по кількості товарів в полі order по зростанню. (sort)
 
 
 - Створити функцію конструктор яка дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску, максимальна швидкість, об'єм двигуна. додати в об'єкт функції:

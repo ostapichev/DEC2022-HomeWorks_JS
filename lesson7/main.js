@@ -301,6 +301,6 @@ console.log(`Попелюшка знайдена: ${findCinderalla(arrCinderalas
 // Додатково, знайти необхідну попелюшку за допомоги функції масиву find та відповідного колбеку*/
 let findSize = arrCinderalas.find(value => {
     return value['size'] === prince['findSize'];
-})
+});
 
 console.log(`Попелюшка знайдена: ${findSize['name']}`);

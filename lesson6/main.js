@@ -145,7 +145,7 @@ let cardSix = playCards.filter(value => {
     return value.value === '6';
 })
 
-console.log(cardSix);
+console.log(cardSix());
 
 //- всі червоні карти
 let redCards = playCards.filter(value => {

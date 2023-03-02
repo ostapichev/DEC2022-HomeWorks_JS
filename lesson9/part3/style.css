@@ -1,0 +1,49 @@
+body {
+    padding: 0;
+}
+
+.block, .container, .duration {
+    display: flex;
+}
+
+.block, .container {
+    flex-direction: column;
+}
+
+.title, .monthDuration, .hourDuration, .modules, li {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.monthDuration, .hourDuration, body {
+    margin: 0;
+}
+
+.title, .modules, li {
+    margin: 10px;
+}
+
+.block {
+    align-items: center;
+}
+
+.container {
+    width: 50%;
+    border: 1px solid red;
+}
+
+.duration {
+    justify-content: space-evenly;
+}
+
+.monthDuration {
+    width: 25%;
+}
+
+.hourDuration {
+    width: 67%;
+}
+
+li {
+    list-style-type: none;
+}

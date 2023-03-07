@@ -106,4 +106,3 @@ for (let item of coursesArray) {
 block.classList.add('block');
 document.body.appendChild(block);
 
-

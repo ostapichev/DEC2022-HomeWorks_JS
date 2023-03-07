@@ -33,7 +33,7 @@ let button = document.createElement('button');
 let count = parseInt(localStorage.getItem('count')) || 0;
 count++;
 numCount.innerText = count;
-localStorage.setItem('count', count);
+localStorage.setItem('count', JSON.stringify(count));
 button.innerText = 'очистити';
 button.addEventListener('click', () => {
     localStorage.clear();
@@ -47,17 +47,18 @@ divCount.append(button);
 //Є ще сторінка sessions.html (назва довільна), при відвідуванні якої потрібно
 //відмалювати всю інформацію про відвідування сторінки index.html.
 //Інфу НЕ виводити в консоль, а побудувати дом структуру під кожну сессію
-localStorage.setItem('sesions', new Date());
-console.log(now);
-
+let now = new Date() ;
+session = JSON.stringify(now);
+window.onload = () => {
+    let sessionArray = JSON.parse(localStorage.getItem('sessions')) || [];
+    sessionArray.push(session);
+    localStorage.setItem('sessions', JSON.stringify(sessionArray));
+}
 
 /*=========================
-    зробити масив на 100 об'єктів та дві кнопки prev next
-при завантажені сторінки з'являються перші 10 об'єктів.
-    При натисканні next виводяться настпні 10 об'єктів
-При натисканні prev виводяться попередні 10 об'єктів
 
 
-*** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
+
+/**** Створити 3 інпута та кнопку. Один визначає кількість рядків, другий - кількість ячеєк, третій вмиіст ячеєк.
     При натисканні кнопки, вся ця інформація зчитується і формується табличка, з відповідним вмістом.
 (Додатковачастина для завдання)*/

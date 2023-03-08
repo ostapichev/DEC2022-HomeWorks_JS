@@ -1,0 +1,24 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.homework {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 10px;
+}
+
+.form {
+    border: 1px solid gray;
+    padding: 20px;
+}
+
+.users {
+    margin: 5px;
+}
+
+.divcount, .infosession {
+    margin: 10px;
+}

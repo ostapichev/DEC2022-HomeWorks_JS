@@ -2,7 +2,6 @@
 //при завантажені сторінки з'являються перші 10 об'єктів.
 //При натисканні next виводяться настпні 10 об'єктів
 //При натисканні prev виводяться попередні 10 об'єктів
-
 let locations = [
     {
         "title": "м. Київ",
@@ -405,113 +404,98 @@ let locations = [
         "type": "raion"
     },
 ];
-let prev = document.getElementsByClassName('prev')[0];
-let next = document.getElementsByClassName('next')[0];
-let div = document.getElementsByClassName('list')[0];
-let listlocations = 10;
-let pages = locations.length / listlocations;
 
-
-let idLocations = locations.map((value, index) => {
-    return {
-        id: index + 1,
-        title: value['title'],
-        type: value['type']
-    }
-})
-
-window.addEventListener('load', (eo) => {
+window.addEventListener('load', function(eo) {
     eo.preventDefault(eo);
-    for (let i = 0; i < idLocations.length; i++) {
-        let location = idLocations[i];
-        let p = document.createElement('p');
-        p.setAttribute('id', i + 1);
-        p.innerText = `id: ${location['id']} Title: ${location['title']} type: ${location['type']}`;
-        if (location['id'] <= 10) {
-            p.classList.add('show');
-            div.append(p);
-        } else {
-            p.classList.remove('show');
-            p.classList.add('hidden');
-            div.append(p);
-        }
 
+    const STEP = 10;
+    const PREV = document.getElementsByClassName('prev')[0];
+    const NEXT = document.getElementsByClassName('next')[0];
+    const DIV = document.getElementsByClassName('list')[0];
+
+    let idLocations = locations.map((value, index) => {
+        return {
+            id: index + 1,
+            title: value['title'],
+            type: value['type']
+        }
+    })
+
+    let show = (p) => {
+        p.classList.remove('hidden');
+        p.classList.add('show');
     }
 
-    prev.addEventListener('click', function(eo) {
-        eo.preventDefault(eo);
-        let id = parseInt(document.getElementsByClassName('show')[0].id);
-        let step = 10;
-        let start = id;
-        let stop = id + step;
-        if (id === step + 1) {
-            prev.disabled = true;
+    let hidden = (p) => {
+        p.classList.remove('show');
+        p.classList.add('hidden');
+    }
+
+    for (let i = 0; i < idLocations.length; i++) {
+        const LOCATION = idLocations[i];
+        const P = document.createElement('p');
+
+        P.setAttribute('id', i + 1);
+        P.innerText = `id: ${LOCATION['id']} 
+                       Title: ${LOCATION['title']} 
+                       type: ${LOCATION['type']}`;
+
+        if (LOCATION['id'] <= STEP) {
+            P.classList.add('show');
+        } else {
+            P.classList.add('hidden');
         }
+        DIV.append(P);
+    }
+
+    PREV.addEventListener('click', function(eo) {
+        eo.preventDefault(eo);
+
+        const ID = parseInt(document.getElementsByClassName('show')[0].id);
+        const START = ID;
+        const STOP = ID - STEP;
+
+        if (ID <= STEP + 1) {
+            PREV.disabled = true;
+        }
+
+        if (ID <= idLocations.length - (STEP - 1)) {
+            NEXT.disabled = false;
+        }
+
         for (let i = 0; i < idLocations.length; i++) {
-            let value = idLocations[i];
-            let p = document.getElementsByTagName('p')[i];
-            if (value['id'] >= start) {
-                p.classList.remove('show');
-                p.classList.add('hidden');
-            } else if (value['id'] > start < stop) {
-                p.classList.remove('hidden');
-                p.classList.add('show');
+            const P = document.getElementsByTagName('p')[i];
+            const getID = P.getAttribute('id');
+
+            if (getID >= START) {
+                hidden(P);
+            } else if (getID <= START && getID >= STOP) {
+                show(P);
             }
         }
     })
 
-    next.addEventListener('click', function(eo) {
+    NEXT.addEventListener('click', function(eo) {
         eo.preventDefault(eo);
-        let id = parseInt(document.getElementsByClassName('show')[9].id);
-        let step = 10;
-        let start = id;
-        let stop = id + step;
-        prev.disabled = false;
-        if (id === idLocations.length - step) {
-            next.disabled = true;
+        PREV.disabled = false;
+
+        const ID = parseInt(document.getElementsByClassName('show')[STEP - 1].id);
+        const START = ID;
+        const STOP = ID + STEP;
+
+        if (ID >= idLocations.length - STEP) {
+            NEXT.disabled = true;
         }
+
         for (let i = 0; i < idLocations.length; i++) {
-            let value = idLocations[i];
-            let p = document.getElementsByTagName('p')[i];
-            if (value['id'] <= start) {
-                p.classList.remove('show');
-                p.classList.add('hidden');
-            } else if (value['id'] >= start && value['id'] <= stop) {
-                p.classList.remove('hidden');
-                p.classList.add('show');
+            const P = document.getElementsByTagName('p')[i];
+            const getID = P.getAttribute('id');
+
+            if (getID <= START) {
+                hidden(P);
+            } else if (getID >= START && getID <= STOP) {
+                show(P);
             }
         }
     })
-
-    /*next.addEventListener('click', function(eo) {
-        eo.preventDefault(eo);
-        for (let i = 0; i < idLocations.length; i++) {
-            let value = idLocations[i];
-            if (value['id'] >= 10) {
-                let p = document.getElementsByClassName('hidden')[0];
-                p.classList.remove('hidden');
-                p.classList.add('show');
-            }
-        }
-    })*/
-
 })
-        /*for (let i = 0; i < idLocations.length; i++) {
-            let location = idLocations[i];
-            let p = document.createElement('p');
-            if (location['id'] > 10 && location['id'] <= 20) {
-                p.classList.remove('hidden');
-                p.classList.add('show');
-                p.innerText = `Title: ${location['title']} type: ${location['type']}`;
-                div.append(p);
-            } else {
-                p.classList.remove('show');
-                p.classList.add('hidden');
-            }
-        }
-    })
-})
-
-prev.addEventListener('click', () => {
-
-})*/

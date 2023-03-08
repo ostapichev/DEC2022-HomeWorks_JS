@@ -6,11 +6,12 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>JS lesson 10 part 1</title>
+    <link href="styles/style.css" rel="stylesheet">
 </head>
 <body>
     <div class="homework">
         <div class="formuser">
-            <form name="form">
+            <form name="form" class="form">
                 <label>Name:
                     <input type="text" name="username" placeholder="enter your name">
                 </label>
@@ -20,7 +21,7 @@
                 <label>Age:
                     <input type="number" name="usage" placeholder="age input">
                 </label>
-                <input type="submit" name="submit">
+                <button type="submit" name="submit">Створити</button>
             </form>
             <div class="users"></div>
         </div>
@@ -29,10 +30,12 @@
                 <span class="numcounter"></span>
             </p>
         </div>
+        <div class="infosession">
+            <form action="session.html" target="_blank">
+                <button>інформація про відвідування сторінки</button>
+            </form>
+        </div>
     </div>
-    <a href="session.html" target="_blank">
-        Подивитись інформацію про вівдвідування сторінкі
-    </a>
     <script src="scripts/main.js"></script>
 </body>
 </html>

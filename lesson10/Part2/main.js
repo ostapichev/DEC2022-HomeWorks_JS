@@ -421,12 +421,12 @@ window.addEventListener('load', function(eo) {
         }
     })
 
-    let show = (p) => {
+    let show = p => {
         p.classList.remove('hidden');
         p.classList.add('show');
     }
 
-    let hidden = (p) => {
+    let hidden = p => {
         p.classList.remove('show');
         p.classList.add('hidden');
     }

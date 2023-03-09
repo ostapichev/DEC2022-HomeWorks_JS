@@ -11,7 +11,7 @@ let homework = document.getElementsByClassName('homework')[0];
 let userBlock = document.getElementsByClassName('users')[0];
 let form = document.forms.form;
 
-form.submit.addEventListener('click', (eo) => {
+form.submit.addEventListener('click', function(eo) {
     eo.preventDefault();
     let user = new User(
         form.username.value,
@@ -69,11 +69,11 @@ let months = (now.getMonth() + 1).toString();
 let year = now.getFullYear().toString();
 let session = new Session(hours, minutes, seconds, date, months, year);
 
-window.onload = () => {
+window.addEventListener('load', function() {
     let sessionArray = JSON.parse(localStorage.getItem('sessions')) || [];
     sessionArray.push(session);
     localStorage.setItem('sessions', JSON.stringify(sessionArray));
-}
+})
 
 
 
